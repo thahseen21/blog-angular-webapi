@@ -7,6 +7,7 @@ namespace server.Core.IConfiguration
     {
         IBlogRepository Blog { get; }
 
+        ICommentRepository Comment {get;}
         Task CompleteAsync();
     }
 }

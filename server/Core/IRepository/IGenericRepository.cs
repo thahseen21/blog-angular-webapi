@@ -7,11 +7,9 @@ namespace server.Core.IRepository
     {
         Task<IEnumerable<T>> All();
 
-        Task<T> GetById(int id);
-
         Task<bool> Add(T entity);
 
-        Task<bool> Update(T entity);
+        Task<T> Update(T entity);
 
         Task<bool> Delete(T entity);
     }

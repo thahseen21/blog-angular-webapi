@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using server.Core.IRepository;
 using server.Data;
@@ -13,20 +14,18 @@ namespace server.Core.Repository
 
         protected DbSet<T> dbSet;
 
-        public GenericRepository(ApplicationDbContext dbContext)
+        protected readonly IMapper _mapper;
+
+        public GenericRepository(ApplicationDbContext dbContext, IMapper mapper)
         {
             this.dbContext = dbContext;
             this.dbSet = dbContext.Set<T>();
+            this._mapper = mapper;
         }
 
         public async Task<IEnumerable<T>> All()
         {
             return await dbSet.ToListAsync<T>();
-        }
-
-        public virtual async Task<T> GetById(int id)
-        {
-            throw new System.NotImplementedException();
         }
 
         public async Task<bool> Add(T entity)
@@ -35,7 +34,7 @@ namespace server.Core.Repository
             return true;
         }
 
-        public virtual async Task<bool> Update(T entity)
+        public virtual async Task<T> Update(T entity)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using AutoMapper;
 using server.Core.IConfiguration;
 using server.Core.IRepository;
 using server.Core.Repository;
@@ -9,17 +10,18 @@ namespace server.Data
     {
         private ApplicationDbContext _dbContext;
 
-        public IBlogRepository Blog {get;private set;}
+        public IBlogRepository Blog { get; private set; }
 
-        public UnitOfWork(ApplicationDbContext dbContext)
+        public ICommentRepository Comment {get;private set;}
+        public UnitOfWork(ApplicationDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
-            Blog = new BlogRepository(_dbContext);
+            Blog = new BlogRepository(_dbContext, mapper);
+            Comment = new CommentRepository(_dbContext,mapper);
         }
-
-        public Task CompleteAsync()
+        public async Task CompleteAsync()
         {
-            throw new System.NotImplementedException();
+            await this._dbContext.SaveChangesAsync();
         }
     }
 }
