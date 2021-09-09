@@ -39,7 +39,7 @@ namespace server.Controllers
                 {
                     await _unitOfWork.Comment.Add(entity);
                     await _unitOfWork.CompleteAsync();
-                    return Ok("Comment added successfully");
+                    return Ok(entity);
                 }
                 catch (Exception ex)
                 {

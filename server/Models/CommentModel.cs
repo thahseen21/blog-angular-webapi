@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace server.Models
 {
@@ -12,7 +13,9 @@ namespace server.Models
 
         [Required]
         [ForeignKey("Blog")]
+        // [JsonIgnore]
         public int BlogIdFk { get; set; }
+        // [JsonIgnore]
         public Blog Blog { get; set; }
     }
 }
