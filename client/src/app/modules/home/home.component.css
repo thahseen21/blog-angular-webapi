@@ -1,0 +1,30 @@
+.blog-container {
+    position: relative;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    height: 22vh;
+    margin-top: 2%;
+    overflow: hidden;
+    padding: 2% 2% 1% 2%;
+    box-shadow: 3px 3px 7px 0px #eee;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp-h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.module {
+    width: 100%;
+    overflow: hidden;
+}

@@ -46,6 +46,18 @@ namespace server
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services
+                .AddCors(options =>
+                {
+                    options
+                        .AddPolicy("Policy",
+                        builder =>
+                            builder
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowAnyOrigin());
+                });
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
@@ -68,6 +80,8 @@ namespace server
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("Policy");
 
             app
                 .UseEndpoints(endpoints =>

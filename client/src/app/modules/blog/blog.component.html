@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="blog-wrapper">
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.content }}</p>
+    </div>
+    <div class="comments">
+        <div class="comment">
+            <textarea rows="3" #comment> </textarea>
+        </div>
+        <div class="add-btn-wrapper">
+            <button class="btn btn-primary" (click)="addNewComment(comment.value)">
+        add
+      </button>
+        </div>
+    </div>
+</div>

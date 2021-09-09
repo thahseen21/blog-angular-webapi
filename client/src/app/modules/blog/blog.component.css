@@ -1,0 +1,25 @@
+.blog-wrapper {
+    margin-top: 2%;
+}
+
+.blog-wrapper p {
+    line-height: 30px;
+    margin-top: 2%;
+}
+
+.comments {
+    display: flex;
+    /* align-items: center; */
+}
+
+.comment {
+    width: 60%;
+}
+
+.comment textarea {
+    width: 100%;
+}
+
+.add-btn-wrapper {
+    margin-left: 1%;
+}
