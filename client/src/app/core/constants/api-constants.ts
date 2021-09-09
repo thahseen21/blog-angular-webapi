@@ -9,4 +9,6 @@ export class Constants {
   public readonly WEATHERFORECAST: string = 'blog';
   public readonly ADDCOMMENT = 'comment/addcomment';
   public readonly GETCOMMENT = 'comment';
+  public readonly ADDBLOG = 'blog';
+  public readonly EDITBLOG = 'blog';
 }

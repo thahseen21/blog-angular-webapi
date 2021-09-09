@@ -1,0 +1,26 @@
+.new-blog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.title {
+    width: 60%;
+}
+
+.content {
+    width: 60%;
+}
+
+.title input {
+    width: 100%;
+}
+
+.btn-container {
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+    margin-top: 1%;
+}

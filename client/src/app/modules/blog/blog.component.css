@@ -28,3 +28,9 @@
     background-color: #eeeeee5e;
     width: 60%;
 }
+
+.addbtn {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+}

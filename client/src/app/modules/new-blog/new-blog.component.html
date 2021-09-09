@@ -1,1 +1,36 @@
-<p>new-blog works!</p>
+<div *ngIf="isEdit; else elseStatement">
+    <div class="new-blog-container">
+        <div class="title">
+            <h5>Title</h5>
+            <input type="text" class="form-control" #title value="{{ blog.title }}" />
+        </div>
+        <div class="content">
+            <h5>content</h5>
+            <textarea class="form-control" rows="15" #content value="{{ blog.content }}"></textarea>
+        </div>
+    </div>
+    <div class="btn-container">
+        <button class="btn" (click)="goBack()">Cancel</button>
+        <button class="btn btn-primary" (click)="addNewBlog(title.value, content.value)">
+      Add
+    </button>
+    </div>
+</div>
+<ng-template #elseStatement>
+    <div class="new-blog-container">
+        <div class="title">
+            <h5>Title</h5>
+            <input type="text" class="form-control" #title />
+        </div>
+        <div class="content">
+            <h5>content</h5>
+            <textarea class="form-control" rows="15" #content></textarea>
+        </div>
+    </div>
+    <div class="btn-container">
+        <button class="btn" (click)="goBack()">Cancel</button>
+        <button class="btn btn-primary" (click)="addNewBlog(title.value, content.value)">
+      Add
+    </button>
+    </div>
+</ng-template>

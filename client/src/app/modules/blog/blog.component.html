@@ -16,11 +16,18 @@
     <div *ngIf="commentList.length > 0; else elseStatement">
         <div class="comments-list">
             <div class="comment-view" *ngFor="let comment of commentList">
-                <p>{{comment.message}}</p>
+                <p>{{ comment.message }}</p>
             </div>
         </div>
     </div>
     <ng-template #elseStatement>
         <p>no comments!!!</p>
     </ng-template>
+    <button class="btn btn-primary addbtn" (click)="editblog()">
+    <img
+      src="https://img-premium.flaticon.com/png/512/2356/premium/2356780.png?token=exp=1631186632~hmac=26e45b81df5fa1c0ed967f5c2715c113"
+      alt="edit"
+      width="16px"
+    />
+  </button>
 </div>

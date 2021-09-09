@@ -31,4 +31,8 @@ export class HomeComponent implements OnInit {
   gotoBlog(data: Blog) {
     this.router.navigate(['blog'], { state: { data: data } });
   }
+
+  gotoNewBlog() {
+    this.router.navigate(['newblog']);
+  }
 }

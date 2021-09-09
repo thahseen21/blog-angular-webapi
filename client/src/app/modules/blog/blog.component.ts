@@ -51,9 +51,14 @@ export class BlogComponent implements OnInit {
       };
       this.apiHttpService
         .post(this.apiEndPointService.addCommentEndPoint(), {}, body)
-        .subscribe((value) => this.commentList.push(...this.commentList,value));
+        .subscribe((value) =>
+          this.commentList.push(...this.commentList, value)
+        );
       this.textarea.nativeElement.value = ' ';
-
     }
+  }
+
+  editblog() {
+    this.router.navigate(['newblog'], { state: { data: this.blog } });
   }
 }

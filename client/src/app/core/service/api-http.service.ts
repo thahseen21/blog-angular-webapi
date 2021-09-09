@@ -13,4 +13,7 @@ export class ApiHttpService {
 
   public post = (url: string, options?: any, body?: any): Observable<any> =>
     this.http.post(url, body, options);
+
+  public put = (url: string, options?: any, body?: any): Observable<any> =>
+    this.http.put(url, body, options);
 }

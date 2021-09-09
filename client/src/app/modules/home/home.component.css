@@ -28,3 +28,9 @@
     width: 100%;
     overflow: hidden;
 }
+
+.new-blog {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+}
