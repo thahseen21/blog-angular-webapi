@@ -13,4 +13,14 @@
       </button>
         </div>
     </div>
+    <div *ngIf="commentList.length > 0; else elseStatement">
+        <div class="comments-list">
+            <div class="comment-view" *ngFor="let comment of commentList">
+                <p>{{comment.message}}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseStatement>
+        <p>no comments!!!</p>
+    </ng-template>
 </div>

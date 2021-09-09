@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiEndPointService } from 'src/app/core/service/api-endpoints.service';
 import { ApiHttpService } from 'src/app/core/service/api-http.service';
 import { Blog } from 'src/app/data/schema/blog';
+import { Comment } from 'src/app/data/schema/comment';
 
 @Component({
   selector: 'app-blog',
@@ -11,6 +12,8 @@ import { Blog } from 'src/app/data/schema/blog';
 })
 export class BlogComponent implements OnInit {
   public blog!: Blog;
+
+  public commentList: Comment[] = [];
 
   @ViewChild('comment') textarea: any;
 
@@ -23,9 +26,21 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     if (history.state.data) {
       this.blog = history.state.data;
+      this.getCommentList();
     } else {
       this.router.navigate(['/']);
     }
+  }
+
+  getCommentList() {
+    var body = {
+      id: this.blog.id,
+    };
+    this.apiHttpService
+      .post(this.apiEndPointService.getCommentEndPoint(), {}, body)
+      .subscribe((data) => {
+        this.commentList = [...data];
+      });
   }
 
   addNewComment(comment: string) {
@@ -36,8 +51,9 @@ export class BlogComponent implements OnInit {
       };
       this.apiHttpService
         .post(this.apiEndPointService.addCommentEndPoint(), {}, body)
-        .subscribe();
+        .subscribe((value) => this.commentList.push(...this.commentList,value));
       this.textarea.nativeElement.value = ' ';
+
     }
   }
 }

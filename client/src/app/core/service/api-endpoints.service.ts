@@ -13,6 +13,9 @@ export class ApiEndPointService {
   public addCommentEndPoint = (): string =>
     this.createUrl(this.path.ADDCOMMENT);
 
+  public getCommentEndPoint = (): string =>
+    this.createUrl(this.path.GETCOMMENT);
+
   private createUrl = (action: string): string => {
     return this.path.BASE_URL + action;
   };
